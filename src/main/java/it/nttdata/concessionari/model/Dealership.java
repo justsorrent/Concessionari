@@ -3,6 +3,7 @@ package it.nttdata.concessionari.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -39,9 +40,13 @@ public class Dealership {
         this.region = region;
         this.address = address;
         this.city = city;
+        cars = new HashSet<>();
+        employees = new HashSet<>();
     }
 
     public Dealership() {
+        cars = new HashSet<>();
+        employees = new HashSet<>();
     }
 
     public Long getId() {
