@@ -28,10 +28,10 @@ public class Dealership {
     @Size(min = 1)
     private String city;
 
-    @OneToMany(mappedBy = "concessionarie")
+    @OneToMany(mappedBy = "dealership")
     private Set<Employee> employees;
 
-    @OneToMany(mappedBy = "concessionarie")
+    @OneToMany(mappedBy = "dealership")
     private Set<Car> cars;
 
     public Dealership(String name, Region region, String address, String city) {
