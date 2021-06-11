@@ -21,13 +21,13 @@
                     <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="cars">Auto</a>
+                    <a class="nav-link active" href="/cars">Auto</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Regioni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="dealerships">Elenco Concessionari</a>
+                    <a class="nav-link" href="/dealerships">Elenco Concessionari</a>
                 </li>
             </ul>
         </div>
@@ -42,6 +42,26 @@
         </div>
     </div>
     <!--  Content  -->
+    <div class="row">
+        <div class="col mt-4">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Modello</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Concessionario</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="car : ${cars}">
+                    <td th:text="${car.model}">Modello</td>
+                    <td th:text="${car.price}">Prezzo</td>
+                    <td th:text="${car.dealership.name}">Concessionario</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"

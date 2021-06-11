@@ -29,7 +29,7 @@ public class BootstrapData implements CommandLineRunner {
         Dealership dealer2 = new Dealership("NttCar", Region.LAZIO, "Via Milano", "Roma");
 
         Car car1 = new Car("Tesla Model 3", 44999d, dealer1);
-        Car car2 = new Car("Polo", 23499d, dealer1);
+        Car car2 = new Car("Volkswagen Polo", 23499d, dealer1);
         Car car3 = new Car("Mercedes classe A", 35000d, dealer2);
         Car car4 = new Car("BMW Serie 1", 37000d, dealer2);
 
