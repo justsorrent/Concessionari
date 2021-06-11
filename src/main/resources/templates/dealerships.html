@@ -44,7 +44,7 @@
     <!--  Content  -->
     <div class="row">
         <div class="col mt-4">
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -55,7 +55,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="dealer : ${dealerList}">
-                    <th th:text="${dealer.name}">Nome</th>
+                    <td th:text="${dealer.name}">Nome</td>
                     <td th:text="${dealer.address}">Via</td>
                     <td th:text="${dealer.city}">Città</td>
                     <td th:text="${dealer.region}">Regione</td>
