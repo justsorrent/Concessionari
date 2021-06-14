@@ -100,4 +100,15 @@ public class Dealership {
     public void setCars(Set<Car> cars) {
         this.cars = cars;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", region=" + region +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }

@@ -58,4 +58,14 @@ public class Car {
     public void setDealership(Dealership dealership) {
         this.dealership = dealership;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", dealership=" + dealership +
+                '}';
+    }
 }

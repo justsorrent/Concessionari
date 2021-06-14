@@ -2,13 +2,15 @@ package it.nttdata.concessionari.controller;
 
 import it.nttdata.concessionari.model.Car;
 import it.nttdata.concessionari.repositories.CarRepository;
+import it.nttdata.concessionari.repositories.DealershipRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,9 +18,11 @@ import java.util.stream.Collectors;
 public class CarController {
 
     private final CarRepository carRepository;
+    private final DealershipRepository dealershipRepository;
 
-    public CarController(CarRepository carRepository) {
+    public CarController(CarRepository carRepository, DealershipRepository dealershipRepository) {
         this.carRepository = carRepository;
+        this.dealershipRepository = dealershipRepository;
     }
 
     @GetMapping("/cars")
@@ -38,6 +42,19 @@ public class CarController {
         model.addAttribute("cars", ans);
 
         return "cars";
+    }
+
+    @PostMapping("/new-car")
+    @ResponseBody
+    public String addCar(Car car) {
+        carRepository.save(car);
+        return car.toString();
+    }
+
+    @GetMapping("/add-car")
+    public String addCarForm(Model model) {
+        model.addAttribute("dealerList", dealershipRepository.findAll());
+        return "add-car";
     }
 
 }
